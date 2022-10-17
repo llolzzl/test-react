@@ -21,7 +21,7 @@ describe('<TodoItem />', () => {
         };
     };
     it('has span and button', () => {
-        const {span, button} = setup();
+        const { span, button } = setup();
         expect(span).toBeTruthy();
         expect(button).toBeTruthy();
     });

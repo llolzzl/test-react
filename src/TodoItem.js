@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 const TodoItem = ({todo,onToggle,onRemove}) => {
     const {id, text, done} = todo;
+    const toggle = useCallback(() => onToggle(id), [onToggle, id]);
+    const remove = useCallback(() => onRemove(id), [onRemove, id]);
     return (
         <li>
             <span
@@ -9,7 +11,7 @@ const TodoItem = ({todo,onToggle,onRemove}) => {
                 textDecoration: done ? 'line-through': 'none'
                 }}
                 onClick={() => ontoggle(id)}>{text}</span>
-            <button onClick={() => onRemove(id)}>삭제</button>
+            <button onClick={remove}>삭제</button>
         </li>);
 };
 
